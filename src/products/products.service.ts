@@ -15,4 +15,10 @@ export class ProductsService {
 
     return this.productsRepository.save(newProduct);
   }
+
+  async findById(id: number) {
+    const product = await this.productsRepository.findOne({ where: { id } });
+
+    return product;
+  }
 }

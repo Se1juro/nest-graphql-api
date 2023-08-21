@@ -1,13 +1,21 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { IsNumber, IsPositive, IsString, Min } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsPositive,
+  IsString,
+  Min,
+} from 'class-validator';
 
 @InputType()
 export class CreateProductValidator {
   @IsString()
+  @IsNotEmpty()
   @Field()
   title: string;
 
   @IsString()
+  @IsNotEmpty()
   @Field()
   description: string;
 
