@@ -1,0 +1,15 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  id: Int!
+  title: String!
+  description: String!
+  quantity: Float!
+  unityPrice: Float!
+}
+
+type Query {
+  products: [Product!]!
+}
