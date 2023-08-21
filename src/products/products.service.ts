@@ -1,17 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { Product } from './products.entity';
+import { ProductsRepository } from './products.repository';
+import { CreateProductValidator } from './validator/createProduct.validator';
 
 @Injectable()
 export class ProductsService {
-  findAll(): Product[] {
-    return [
-      {
-        id: 1,
-        description: 'Hello',
-        quantity: 33,
-        title: 'Test',
-        unityPrice: 5000,
-      },
-    ];
+  constructor(private productsRepository: ProductsRepository) {}
+  async findAll(): Promise<Product[]> {
+    return await this.productsRepository.find();
+  }
+
+  async createProduct(product: CreateProductValidator) {
+    const newProduct = this.productsRepository.create(product);
+
+    return this.productsRepository.save(newProduct);
   }
 }

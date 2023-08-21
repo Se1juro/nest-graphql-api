@@ -1,6 +1,7 @@
-import { Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { ProductsService } from './products.service';
 import { Product } from './products.entity';
+import { CreateProductValidator } from './validator/createProduct.validator';
 
 @Resolver()
 export class ProductsResolver {
@@ -9,5 +10,10 @@ export class ProductsResolver {
   @Query(() => [Product])
   products() {
     return this.productsService.findAll();
+  }
+
+  @Mutation(() => Product)
+  createProduct(@Args('productInput') product: CreateProductValidator) {
+    return this.productsService.createProduct(product);
   }
 }

@@ -13,3 +13,14 @@ type Product {
 type Query {
   products: [Product!]!
 }
+
+type Mutation {
+  createProduct(productInput: CreateProductValidator!): Product!
+}
+
+input CreateProductValidator {
+  title: String!
+  description: String!
+  quantity: Float!
+  unityPrice: Float!
+}
