@@ -28,4 +28,9 @@ export class CreateProductValidator {
   @IsPositive()
   @Field()
   unityPrice: number;
+
+  @IsNumber()
+  @IsPositive()
+  @Field()
+  shopId: number;
 }

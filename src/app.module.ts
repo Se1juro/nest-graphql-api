@@ -5,6 +5,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { DATABASE_CONFIGURATION } from './config/database.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ShopsModule } from './shops/shops.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
     }),
+    ShopsModule,
   ],
   controllers: [],
   providers: [],
