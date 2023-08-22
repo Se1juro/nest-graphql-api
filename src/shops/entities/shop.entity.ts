@@ -18,6 +18,6 @@ export class Shop {
   address: string;
 
   @OneToMany(() => Product, (product) => product.shop)
-  @Field(() => [Product], { nullable: true })
+  @Field(() => [Product])
   products: Product[];
 }

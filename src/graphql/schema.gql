@@ -6,7 +6,7 @@ type Shop {
   id: Int!
   name: String!
   address: String!
-  products: [Product!]
+  products: [Product!]!
 }
 
 type Product {
